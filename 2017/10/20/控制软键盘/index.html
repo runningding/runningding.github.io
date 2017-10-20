@@ -94,16 +94,16 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="从交互层面上来讲，完成一个功能（获得想要的信息）的过程称之为用户路径。用户路径越长，完成功能的复杂度就越高，用户体验也就越差。因此当打开一个需要用户填写信息的表单界面时，为了提高可用性，PC 端一般会将光标聚焦到对应输入框（input），移动端也是同理，让对应的 input 获得 focus 状态，唤起软键盘，方便用户直接输入。本文暂且不论 PC 端的场景，在移动端（iOS、Android）实现这">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/08/09/hello-world/index.html">
+<meta property="og:title" content="控制软键盘">
+<meta property="og:url" content="http://yoursite.com/2017/10/20/控制软键盘/index.html">
 <meta property="og:site_name" content="runningding">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2017-08-09T10:03:36.899Z">
+<meta property="og:description" content="从交互层面上来讲，完成一个功能（获得想要的信息）的过程称之为用户路径。用户路径越长，完成功能的复杂度就越高，用户体验也就越差。因此当打开一个需要用户填写信息的表单界面时，为了提高可用性，PC 端一般会将光标聚焦到对应输入框（input），移动端也是同理，让对应的 input 获得 focus 状态，唤起软键盘，方便用户直接输入。本文暂且不论 PC 端的场景，在移动端（iOS、Android）实现这">
+<meta property="og:updated_time" content="2017-10-20T06:40:59.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="控制软键盘">
+<meta name="twitter:description" content="从交互层面上来讲，完成一个功能（获得想要的信息）的过程称之为用户路径。用户路径越长，完成功能的复杂度就越高，用户体验也就越差。因此当打开一个需要用户填写信息的表单界面时，为了提高可用性，PC 端一般会将光标聚焦到对应输入框（input），移动端也是同理，让对应的 input 获得 focus 状态，唤起软键盘，方便用户直接输入。本文暂且不论 PC 端的场景，在移动端（iOS、Android）实现这">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/09/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/20/控制软键盘/"/>
 
 
 
 
 
-  <title>Hello World | runningding</title>
+  <title>控制软键盘 | runningding</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/09/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/控制软键盘/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="runningding">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">控制软键盘</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-09T15:57:53+08:00">
-                2017-08-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-20T14:01:20+08:00">
+                2017-10-20
               </time>
             
 
@@ -332,7 +332,56 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p>从交互层面上来讲，完成一个功能（获得想要的信息）的过程称之为用户路径。用户路径越长，完成功能的复杂度就越高，用户体验也就越差。因此当打开一个需要用户填写信息的表单界面时，为了提高可用性，PC 端一般会将光标聚焦到对应输入框（input），移动端也是同理，让对应的 input 获得 focus 状态，唤起软键盘，方便用户直接输入。<br>本文暂且不论 PC 端的场景，在移动端（iOS、Android）实现这个看似不起眼的效果其实是需要经过一番折腾，我们慢慢往下看以下三种常用场景。</p>
+<p>#一、当进入表单页时，让软键盘自动打开<br>这个需求比较常见，但是也是最棘手的。讲科学的话，我们可以直接在 JS 里获取 input ，给它 focus 下就搞定了。但是这在移动端浏览器里是行不通的。。<br>另外，H5 提供了 autofocus 属性，这个属性的兼容性在 caniuse 上显示并不支持 iOS Safari，Android 也是要到 4.4 才开始支持，因此我们可以忽略这个属性，不过下文会再次提到这个属性。<br>因此在 iOS 里想要在页面 load 完成后自动聚焦 input，打开键盘目前来讲不是很现实。<br>最难过的是 Android 也不行，目前进行了简单的测试系统浏览器和 App 内嵌 WebView，H5 中的 input 是聚焦状态，但是无法唤起键盘，键盘，键盘。。。<br>场景一，暂时无解……（下文提到在 Hybrid App 中可以实现）</p>
+<p>#二、当点击页面中某个元素唤起软键盘<br>这个相对于场景一，多了用户交互这一步。那么这样是不是就可以使用 JS 在 iOS 上成功的唤起键盘了呢？答案是肯定的。</p>
+<blockquote>
+<p><code>&lt;!-- HTML --&gt;</code><br><code>&lt;input id=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;this a input&quot;/&gt;</code><br><code>&lt;button id=&quot;J-focus-btn&quot; onclick=&quot;clickFocusBtn()&quot;&gt;focus input&lt;/button&gt;</code><br><code>// JS</code><br><code>function clickFocusBtn() {</code><br>   <code>document.getElementById(&quot;input&quot;).focus();</code><br><code>}</code>  </p>
+</blockquote>
+<p>如果有使用 zepto 的童鞋，这边需要注意下为了 iOS，你不能使用 tap 事件。  </p>
+<blockquote>
+<p>// JS  zepto<br>$(‘#J-focus-btn’).on(‘tap’, function() {<br>   $(‘#input’).focus();<br>});  </p>
+</blockquote>
+<p>如上使用了 zepto tap 事件，它在 iOS 上并不能达到预期效果，这里面就涉及到了 iOS WebView 的一种默认安全机制。在 UIWebView 中有一个属性：</p>
+<blockquote>
+<p>@property (nonatomic) BOOL keyboardDisplayRequiresUserAction NS_AVAILABLE_IOS(6_0); // default is YES  </p>
+</blockquote>
+<p>这个属性默认是 YES，也就是说键盘的出现必须要用户交互。那我们就知道原因了，zepto 内部触发 tap 事件是在 setTimeout 内，也就是说执行 focus 时，执行环境并不是用户触发的，因此 focus 被拦截掉了。</p>
+<blockquote>
+<p>// zepto<br>tapTimeout = setTimeout(function() {<br>  // trigger event<br>}, 0)</p>
+</blockquote>
+<p>如果我们是写 Hybird App 的页面，则可以让 Native Coder 将 UIWebView 的 keyboardDisplayRequiresUserAction 属性设置为 NO，则不必操心这个问题了。<br>不过 iOS 的 WKWebView 不支持这个属性了，但是在 StackOverflow 上有方案，可以使用 runtime 的 method swizzling hack 掉，详见此链接 stackoverflow.com/questions/3…<br>那么场景一在自己的 Hybrid App 里还是可以实现的，当然系统原生的 Safari 浏览器我们无能为力，能优化一点是一点吧。<br>同时测试了下 autofocus 属性，在 keyboardDisplayRequiresUserAction 设置为 NO 的情况下，它也是能正常工作的。<br>在 Android 底下，也是可以实现用户点击之后 focus 指定 input 的效果，而且没有 iOS 的那个机制。</p>
+<p>#三、表单页多个 input 依次自动聚焦</p>
+<p>这个场景其实是场景一、二的结合，综合上面两个场景的测试分析，在自己的 <em> iOS Hybrid App </em> 里依赖 Native 的 WebView 是可以实现的，在 Android 和外部浏览器中可以实现除第一次聚焦外的自动聚焦。。<br>目前 iOS UIWebView 设置 keyboardDisplayRequiresUserAction = NO 的状态下，需要在 blur 事件内延迟 focus 才能生效（具体原因暂时不明）：</p>
+<blockquote>
+<p>// Hybrid App 内<br>document.querySelector(‘#input1’).focus</p>
+</blockquote>
+<ul>
+<li>();  <blockquote>
+<p>document.querySelector(‘#input1’).addEventListener(‘blur’, function() {<br>   setTimeout(function() {    // 必须延迟  </p>
+<pre><code>document.querySelector(&apos;#input2&apos;).focus();  
+</code></pre><p>   }, 200);<br>});  </p>
+</blockquote>
+</li>
+</ul>
+<p>为了解决这个问题，在 Hybrid App 中可以通过 JSBridge 让 Android 原生进行唤起，后续 blur 事件中再 focus 则不需要原生再进行处理。</p>
+<blockquote>
+<p>// Android 唤起键盘<br>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);<br>imm.showSoftInput(view, 0);   // view 为当前 webview  </p>
+</blockquote>
+<p>#小结<br>总结下：  </p>
+<ul>
+<li>要实现页面加载完成后自动聚焦到 input 并弹出键盘，依赖 iOS App 的 WebView 将 keyboardDisplayRequiresUserAction 设置为 NO，就可以支持。Android 底下只能依赖 JSBridge 调用 Android 原生方法唤起键盘 。</li>
+<li>点击元素聚焦指定 input，iOS / Android 都支持，但是 iOS 中必须保证 focus 是在用户操作事件的函数执行环境中直接调用（Zepto tap 的坑）。</li>
+<li>依次聚焦 input，iOS 中有点特殊，具体还是看上文场景三。。。</li>
+</ul>
+<p>#LINKS</p>
+<ul>
+<li><a href="http://https://stackoverflow.com/questions/6287478/mobile-safari-autofocus-text-field" target="_blank" rel="external">http://https://stackoverflow.com/questions/6287478/mobile-safari-autofocus-text-field</a></li>
+<li><a href="http://https://stackoverflow.com/questions/32407185/wkwebview-cant-open-keyboard-for-input-field" target="_blank" rel="external">http://https://stackoverflow.com/questions/32407185/wkwebview-cant-open-keyboard-for-input-field</a></li>
+</ul>
+<blockquote>
+<p>作者：boban<br>原文：<a href="https://webfe.kujiale.com/mobile-input-auto-focus/" target="_blank" rel="external">https://webfe.kujiale.com/mobile-input-auto-focus/</a></p>
+</blockquote>
 
       
     </div>
@@ -357,15 +406,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/09/15/whistle 使用实践/" rel="next" title="whistle 使用实践">
+                <i class="fa fa-chevron-left"></i> whistle 使用实践
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/23/H5/" rel="prev" title="H5">
-                H5 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
